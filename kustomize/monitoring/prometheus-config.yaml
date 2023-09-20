@@ -17,7 +17,10 @@ data:
     - job_name: 'crunchy-postgres-exporter'
       kubernetes_sd_configs:
       - role: pod
-
+        namespaces:
+          names:
+            - 0ab226-dev
+            - 0ab226-test
       relabel_configs:
       - source_labels: [__meta_kubernetes_pod_label_postgres_operator_crunchydata_com_crunchy_postgres_exporter,__meta_kubernetes_pod_label_crunchy_postgres_exporter]
         action: keep

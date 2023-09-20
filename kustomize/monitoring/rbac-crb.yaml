@@ -1,12 +1,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+# kind: ClusterRoleBinding update to RoleBinding for Openshift
+kind: RoleBinding
 metadata:
   labels:
     vendor: crunchydata 
   name: prometheus-crb
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  # kind: ClusterRole update to Role for Openshift
+  kind: Role
   name: prometheus-cr
 subjects:
 - kind: ServiceAccount
